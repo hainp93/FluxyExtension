@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "AutoFlow V64 (Ultra Sniffer)",
+  "version": "6.4",
+  "description": "Bắt Token Google Labs",
+  "permissions": [
+    "scripting",
+    "activeTab",
+    "tabs",
+    "cookies",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://labs.google/*"
+      ],
+      "js": [
+        "content_main.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "*://labs.google/*"
+      ],
+      "js": [
+        "content_iso.js"
+      ],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    }
+  ],
+  "action": {
+    "default_title": "AutoFlow Status"
+  }
+}
