@@ -94,7 +94,7 @@ async function fetchRecaptcha(action = 'VIDEO_GENERATION') {
             },
             args: [SITE_KEY, action]
         });
-        if (result[0]?.result) sendToServer({ recaptchaToken: result[0].result });
+        if (result[0]?.result) sendToServer({ recaptchaToken: result[0].result, action: action });
     } catch (e) { }
 }
 
